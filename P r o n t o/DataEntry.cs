@@ -215,7 +215,7 @@ namespace Pronto
         //    return ServiceList;
         //}
 
-        private Route getSelectedRoute()
+        public Route getSelectedRoute()
         {
 
             Route CurRoot = new Route();
@@ -556,12 +556,25 @@ namespace Pronto
         {
             try
             {
+
                 if (e.RowIndex < 0 || stopslist == null || stopslist.Count == 0)
                 { return; }
 
                 if (e.RowIndex > 0)
                 {
                     stopslist[e.RowIndex - 1].StopNo = "Stop-" + e.RowIndex.ToString();
+                }
+
+
+                if(stopDGV.Rows.Count > 0)
+                {
+                    DateTime departTime;
+                    DataGridViewRow departValueRow = stopDGV.Rows[e.RowIndex > 0 ? e.RowIndex - 1 : e.RowIndex];
+                    string dTime = departValueRow.Cells["StopDepartTime"].Value.ToString();
+                    DateTime enteredDate = DateTime.Parse(dTime);
+                    stopDGV.Rows[e.RowIndex].Cells["StopDepartTime"].Value = enteredDate;
+
+
                 }
             }
             catch (Exception ex)
@@ -1092,6 +1105,20 @@ namespace Pronto
 
             if (!handled)
                 base.WndProc(ref m);
+        }
+
+        private void helpercmb1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(helpercmb1.SelectedValue != null)
+            {
+                if (helpercmb2.Items.Contains(helpercmb1.SelectedItem) || helpercmb2.Items.Contains(helpercmb1.SelectedItem) || helpercmb2.Items.Contains(helpercmb1.SelectedItem))
+                {
+                    helpercmb2.DataSource = null;
+                    helpercmb3.DataSource = null;
+                    helpercmb4.DataSource = null;
+
+                }
+            }
         }
     }
 }

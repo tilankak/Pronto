@@ -31,19 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.OkButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TimeDiff = new System.Windows.Forms.TextBox();
+            this.DepartTime = new System.Windows.Forms.DateTimePicker();
             this.StopArrivalTime = new System.Windows.Forms.Label();
             this.StopDepartTime = new System.Windows.Forms.Label();
             this.StopTimeAllot = new System.Windows.Forms.Label();
             this.ArivalTime = new System.Windows.Forms.DateTimePicker();
-            this.DepartTime = new System.Windows.Forms.DateTimePicker();
-            this.TimeDiff = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(132, 106);
+            this.OkButton.Location = new System.Drawing.Point(172, 104);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 0;
@@ -54,8 +54,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.18898F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.81102F));
             this.tableLayoutPanel1.Controls.Add(this.TimeDiff, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.DepartTime, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.StopArrivalTime, 0, 0);
@@ -68,20 +68,39 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(195, 76);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 76);
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // contextMenuStrip1
+            // TimeDiff
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.TimeDiff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TimeDiff.Enabled = false;
+            this.TimeDiff.Location = new System.Drawing.Point(99, 55);
+            this.TimeDiff.Name = "TimeDiff";
+            this.TimeDiff.Size = new System.Drawing.Size(152, 20);
+            this.TimeDiff.TabIndex = 3;
+            this.TimeDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TimeDiff.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // DepartTime
+            // 
+            this.DepartTime.CustomFormat = "yyyy/MM/dd hh:mm:tt ";
+            this.DepartTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DepartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DepartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DepartTime.Location = new System.Drawing.Point(99, 29);
+            this.DepartTime.Name = "DepartTime";
+            this.DepartTime.ShowUpDown = true;
+            this.DepartTime.Size = new System.Drawing.Size(152, 20);
+            this.DepartTime.TabIndex = 4;
+            this.DepartTime.ValueChanged += new System.EventHandler(this.ArivalTime_ValueChanged);
             // 
             // StopArrivalTime
             // 
             this.StopArrivalTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.StopArrivalTime.AutoSize = true;
-            this.StopArrivalTime.Location = new System.Drawing.Point(7, 6);
+            this.StopArrivalTime.Location = new System.Drawing.Point(6, 6);
             this.StopArrivalTime.Name = "StopArrivalTime";
             this.StopArrivalTime.Size = new System.Drawing.Size(87, 13);
             this.StopArrivalTime.TabIndex = 0;
@@ -91,7 +110,7 @@
             // 
             this.StopDepartTime.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.StopDepartTime.AutoSize = true;
-            this.StopDepartTime.Location = new System.Drawing.Point(4, 32);
+            this.StopDepartTime.Location = new System.Drawing.Point(3, 32);
             this.StopDepartTime.Name = "StopDepartTime";
             this.StopDepartTime.Size = new System.Drawing.Size(90, 13);
             this.StopDepartTime.TabIndex = 1;
@@ -101,7 +120,7 @@
             // 
             this.StopTimeAllot.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.StopTimeAllot.AutoSize = true;
-            this.StopTimeAllot.Location = new System.Drawing.Point(16, 58);
+            this.StopTimeAllot.Location = new System.Drawing.Point(15, 58);
             this.StopTimeAllot.Name = "StopTimeAllot";
             this.StopTimeAllot.Size = new System.Drawing.Size(78, 13);
             this.StopTimeAllot.TabIndex = 2;
@@ -109,44 +128,28 @@
             // 
             // ArivalTime
             // 
-            this.ArivalTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ArivalTime.CustomFormat = "hh:mm:tt";
+            this.ArivalTime.CustomFormat = "yyyy/MM/dd hh:mm:tt ";
+            this.ArivalTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArivalTime.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.ArivalTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ArivalTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ArivalTime.Location = new System.Drawing.Point(100, 3);
+            this.ArivalTime.Location = new System.Drawing.Point(99, 3);
             this.ArivalTime.Name = "ArivalTime";
             this.ArivalTime.ShowUpDown = true;
-            this.ArivalTime.Size = new System.Drawing.Size(92, 20);
+            this.ArivalTime.Size = new System.Drawing.Size(152, 20);
             this.ArivalTime.TabIndex = 3;
             this.ArivalTime.ValueChanged += new System.EventHandler(this.ArivalTime_ValueChanged);
             // 
-            // DepartTime
+            // contextMenuStrip1
             // 
-            this.DepartTime.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.DepartTime.CustomFormat = "hh:mm:tt";
-            this.DepartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DepartTime.Location = new System.Drawing.Point(100, 29);
-            this.DepartTime.Name = "DepartTime";
-            this.DepartTime.ShowUpDown = true;
-            this.DepartTime.Size = new System.Drawing.Size(92, 20);
-            this.DepartTime.TabIndex = 4;
-            this.DepartTime.ValueChanged += new System.EventHandler(this.ArivalTime_ValueChanged);
-            // 
-            // TimeDiff
-            // 
-            this.TimeDiff.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TimeDiff.Enabled = false;
-            this.TimeDiff.Location = new System.Drawing.Point(100, 55);
-            this.TimeDiff.Name = "TimeDiff";
-            this.TimeDiff.Size = new System.Drawing.Size(92, 20);
-            this.TimeDiff.TabIndex = 3;
-            this.TimeDiff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.TimeDiff.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // SetTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 139);
+            this.ClientSize = new System.Drawing.Size(278, 139);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.OkButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -24,7 +24,7 @@ namespace Pronto.Common.Data
 
         public override string LoadConnectionString()
         {
-            
+            var tt = System.Configuration.ConfigurationManager.ConnectionStrings["ProntoDB"].ToString();
             return System.Configuration.ConfigurationManager.ConnectionStrings["ProntoDB"].ToString();  
         }
 
